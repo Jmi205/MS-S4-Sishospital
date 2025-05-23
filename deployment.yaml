@@ -121,8 +121,8 @@ resources:
           #!/bin/bash
           sudo mkdir /home/labs
           cd /home/labs
-          sudo git clone <URL>
-          cd <ROOT>
+          sudo git clone https://github.com/Jmi205/MS-S4-Sishospital.git
+          cd MS-S4-Sishospital
           docker network create kong-net
           docker run -d --name kong --network=kong-net --restart=always \
           -v "$(pwd):/kong/declarative/" -e "KONG_DATABASE=off" \

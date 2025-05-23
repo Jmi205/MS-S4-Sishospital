@@ -31,12 +31,12 @@ services:
 upstreams:
   - name: eventosmedicos_upstream
     targets:
-      - target: 10.128.0.84:8080
+      - target: 10.128.0.85:8080
         weight: 100
 
   - name: pacientes_upstream
     targets:
-      - target: 10.128.0.85:8080
+      - target: 10.128.0.84:8080
         weight: 100
 
   - name: historiasclinicas_upstream
