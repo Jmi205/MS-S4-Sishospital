@@ -210,8 +210,8 @@ resources:
           #!/bin/bash
           sudo mkdir /home/labs
           cd /home/labs
-          sudo git clone <URL>
-          cd <ROOT>/paciente
+          sudo git clone https://github.com/Jmi205/MS-S4-Sishospital.git
+          cd MS-S4-Sishospital/paciente
 
 - name: msd-eventosmedicos-ms
   type: compute.v1.instance
@@ -243,8 +243,8 @@ resources:
           sudo apt install python3-pip -y
           sudo mkdir /home/labs
           cd /home/labs
-          sudo git clone <URL>
-          cd <ROOT>/eventoMedico
+          sudo git clone https://github.com/Jmi205/MS-S4-Sishospital.git
+          cd MS-S4-Sishospital/eventomedico
           sudo pip3 install -r requirements.txt
           sudo python3 manage.py makemigrations
           sudo python3 manage.py migrate

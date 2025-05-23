@@ -92,6 +92,6 @@ resources:
           sudo curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12
           sudo mkdir /home/labs
           cd /home/labs
-          sudo git clone <URL>
-          cd <ROOT>
+          sudo git clone https://github.com/Jmi205/MS-S4-Sishospital.git
+          cd MS-S4-Sishospital
           sudo python3.12 -m pip install -r requirements.txt

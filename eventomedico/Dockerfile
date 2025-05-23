@@ -6,7 +6,7 @@ WORKDIR /app
 COPY . /app
 
 # Set the environment variables
-ENV EVENTOMEDICO_DB_HOST 10.128.0.2
+ENV EVENTOSMEDICOS_DB_HOST 10.128.0.2
 ENV PACIENTES_HOST 10.128.0.3
 
 # Install Python dependencies

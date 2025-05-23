@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'monitoring.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get("EVENTOMEDICO_DB", "eventomedico_db"),
-        'USER': os.environ.get("EVENTOMEDICO_DB_USER", "eventomedico_user"),
-        'PASSWORD': os.environ.get("EVENTOMEDICO_DB_PASSWD", "isis2503"),
-        'HOST': os.environ.get("EVENTOMEDICO_DB_HOST", "10.128.0.83"),
-        'PORT': os.environ.get("EVENTOMEDICO_DB_PORT", "5432")
+        'NAME': os.environ.get("EVENTOSMEDICOS_DB", "eventosmedicos_db"),
+        'USER': os.environ.get("EVENTOSMEDICOS_DB_USER", "eventosmedicos_user"),
+        'PASSWORD': os.environ.get("EVENTOSMEDICOS_DB_PASSWD", "isis2503"),
+        'HOST': os.environ.get("EVENTOSMEDICOS_DB_HOST", "10.128.0.83"),
+        'PORT': os.environ.get("EVENTOSMEDICOS_DB_PORT", "5432")
     }
 }
 
