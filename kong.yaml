@@ -1,0 +1,45 @@
+_format_version: "2.1"
+
+services:
+  - name: eventosmedicos_service
+    host: eventosmedicos_upstream
+    protocol: http
+    routes:
+      - name: eventosmedicos
+        paths:
+          - /eventosmedicos
+        strip_path: false
+
+  - name: pacientes_service
+    host: pacientes_upstream
+    protocol: http
+    routes:
+      - name: pacientes
+        paths:
+          - /pacientes
+        strip_path: false
+
+  - name: historiasclinicas_service
+    host: historiasclinicas_upstream
+    protocol: http
+    routes:
+      - name: historiasclinicas
+        paths:
+          - /historiasclinicas
+        strip_path: false
+    
+upstreams:
+  - name: eventosmedicos_upstream
+    targets:
+      - target: 10.128.0.84:8080
+        weight: 100
+
+  - name: pacientes_upstream
+    targets:
+      - target: 10.128.0.85:8080
+        weight: 100
+
+  - name: historiasclinicas_upstream
+    targets:
+      - target: 10.128.0.87:8080
+        weight: 100
