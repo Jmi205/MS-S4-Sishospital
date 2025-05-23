@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'monitoring.wsgi.application'
+WSGI_APPLICATION = 'sisHospital.wsgi.application'
 
 
 # Database
