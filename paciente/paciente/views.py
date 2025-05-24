@@ -16,7 +16,7 @@ def paciente_create(request):
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
         paciente = Paciente()
-        paciente.name = data_json["nombre"]
+        paciente.nombre = data_json["nombre"]
         paciente.apellido = data_json["apellido"]
         paciente.tipoSangre = data_json["tipoSangre"]
         paciente.alergias = data_json["alergias"]

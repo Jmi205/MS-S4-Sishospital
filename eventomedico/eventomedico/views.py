@@ -13,6 +13,7 @@ def check_paciente(data):
     pacientes = r.json()
     for paciente in pacientes:
         if data["paciente"] == paciente["id"]:
+            data["paciente"]= paciente["apellido"] + paciente["nombre"]
             return True
     return False
 
