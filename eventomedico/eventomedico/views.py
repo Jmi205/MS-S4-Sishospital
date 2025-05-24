@@ -26,7 +26,7 @@ def check_HC_id(data):
 
 def eventomedicoList(request):
     queryset = Eventomedico.objects.all()
-    context = list(queryset.values('id', 'fechaEvento', 'descripcion', 'tipoEvento', 'paciente', 'historiaClinica'))
+    context = list(queryset.values('id', 'fechaEvento', 'descripcion', 'tipoEvento', 'paciente'))
     return JsonResponse(context, safe=False)
 
 def eventomedicoCreate(request):
@@ -39,7 +39,6 @@ def eventomedicoCreate(request):
             eventomedico.descripcion = data_json['descripcion']
             eventomedico.tipoEvento = data_json['tipoEvento']
             eventomedico.paciente = data_json['paciente']
-            eventomedico.historiaClinica  = data_json['historiaClinica']
             eventomedico.save()
             return HttpResponse("successfully created Evento Medico")
         else:
@@ -58,7 +57,6 @@ def eventosmedicosCreate(request):
                         eventomedico.descripcion = data_json['descripcion']
                         eventomedico.tipoEvento = data_json['tipoEvento']
                         eventomedico.paciente = data_json['paciente']
-                        eventomedico.historiaClinica  = data_json['historiaClinica']
                         eventomedico_list.append(db_eventomedico)
                     else:
                         return HttpResponse("unsuccessfully created Evento Medico. Paciente or Historia Clinica does not exist")

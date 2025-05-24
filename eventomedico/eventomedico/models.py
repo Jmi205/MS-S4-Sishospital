@@ -16,8 +16,6 @@ class Eventomedico(models.Model):
     fechaEvento = models.DateField()
     descripcion = models.CharField(max_length=255)
     paciente = models.CharField(max_length=255)
-    historiaClinica = models.CharField(max_length=255)
-
     tipoEvento = models.IntegerField(
         choices=TIPO_EVENTO_CHOICES,
         default=CONSULTA
