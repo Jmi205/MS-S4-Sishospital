@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
-from views import places_view
+from views import historiasClinicas_view
 
 API_PREFIX = "/api"
 router = APIRouter()
 
-router.include_router(places_view.router, prefix=places_view.ENDPOINT_NAME)
+router.include_router(historiasClinicas_view.router, prefix=historiasClinicas_view.ENDPOINT_NAME)

@@ -1,5 +1,5 @@
 from fastapi import APIRouter, status, Body
-import S4SisHospital.historiaClinica.logic.historiasClinicas_logic as historiasClincas_service
+import logic.historiasClinicas_logic as historiasClincas_service
 from models.models import HistoriaClinica, HistoriaClinicaOut, HistoriaClinicaCollection
 
 router = APIRouter()
@@ -22,7 +22,7 @@ async def get_historiasClinicas():
     response_model=HistoriaClinicaOut,
     status_code=status.HTTP_200_OK,
 )
-async def get_place(historiaClinica_code: str):
+async def get_historiaClinica(historiaClinica_code: str):
     return await historiasClincas_service.get_historiaClinica(historiaClinica_code)
 
 
