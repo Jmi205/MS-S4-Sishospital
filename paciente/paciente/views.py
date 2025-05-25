@@ -15,9 +15,9 @@ def paciente_list(request):
 
 def paciente_create(request):
     if request.method == 'POST':
-            if check_paciente(request):
-                data = request.body.decode('utf-8')
-                data_json = json.loads(data)
+            data = request.body.decode('utf-8')
+            data_json = json.loads(data)
+            if check_paciente(data_json):
                 paciente = Paciente()
                 paciente.nombre = data_json["nombre"]
                 paciente.apellido = data_json["apellido"]
