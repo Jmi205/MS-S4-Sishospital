@@ -33,8 +33,9 @@ def paciente_create(request):
 def check_paciente(data):
     r = requests.get(settings.PATH_HC, headers={"Accept":"application/json"})
     historiasC = r.json()
+    print(historiasC)
     for historia in historiasC["historiasClinicas"]:
-        if data["historiaClinica"] == historia["id"]:
+        if data["historiaClinica"] == historia["code"]:
             return True
     return False
 
