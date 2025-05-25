@@ -28,6 +28,10 @@ def paciente_create(request):
                 paciente.historiaClinica = data_json["historiaClinica"]
                 paciente.save()
                 return HttpResponse("successfully created paciente")
+            else:
+                return HttpResponse("unsuccessfully created Historia Clinca. Pacientre does not exist")
+    return HttpResponse("something weird happend")
+
         
 
 def check_paciente(data):
