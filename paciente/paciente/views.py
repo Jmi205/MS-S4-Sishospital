@@ -4,7 +4,9 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.urls import reverse
 from django.http import JsonResponse
+from django.conf import settings
 import json
+import requests
     
 def paciente_list(request):
     queryset = Paciente.objects.all()
@@ -13,15 +15,26 @@ def paciente_list(request):
 
 def paciente_create(request):
     if request.method == 'POST':
-        data = request.body.decode('utf-8')
-        data_json = json.loads(data)
-        paciente = Paciente()
-        paciente.nombre = data_json["nombre"]
-        paciente.apellido = data_json["apellido"]
-        paciente.tipoSangre = data_json["tipoSangre"]
-        paciente.alergias = data_json["alergias"]
-        paciente.condicionesMedicas = data_json["condicionesMedicas"]
-        paciente.fechaNacimiento = data_json["fechaNacimiento"]
-        paciente.historiaClinica = data_json["historiaClinica"]
-        paciente.save()
-        return HttpResponse("successfully created paciente")
+            if check_paciente(request):
+                data = request.body.decode('utf-8')
+                data_json = json.loads(data)
+                paciente = Paciente()
+                paciente.nombre = data_json["nombre"]
+                paciente.apellido = data_json["apellido"]
+                paciente.tipoSangre = data_json["tipoSangre"]
+                paciente.alergias = data_json["alergias"]
+                paciente.condicionesMedicas = data_json["condicionesMedicas"]
+                paciente.fechaNacimiento = data_json["fechaNacimiento"]
+                paciente.historiaClinica = data_json["historiaClinica"]
+                paciente.save()
+                return HttpResponse("successfully created paciente")
+        
+
+def check_paciente(data):
+    r = requests.get(settings.PATH_HC, headers={"Accept":"application/json"})
+    historiasC = r.json()
+    for historia in historiasC["historiasclinicas"]:
+        if data["historiaClinica"] == historia["id"]:
+            return True
+    return False
+

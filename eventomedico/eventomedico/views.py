@@ -13,7 +13,7 @@ def check_paciente(data):
     pacientes = r.json()
     for paciente in pacientes:
         if data["paciente"] == paciente["id"]:
-            data["paciente"]= paciente["apellido"] + paciente["nombre"]
+            data["paciente"]= paciente["apellido"] + " " + paciente["nombre"]
             return True
     return False
 
@@ -27,7 +27,17 @@ def check_HC_id(data):
 
 def eventomedicoList(request):
     queryset = Eventomedico.objects.all()
-    context = list(queryset.values('id', 'fechaEvento', 'descripcion', 'tipoEvento', 'paciente'))
+    context = []
+
+    for evento in queryset:
+        context.append({
+            'id': evento.id,
+            'fechaEvento': evento.fechaEvento,
+            'descripcion': evento.descripcion,
+            'paciente': evento.paciente,
+            'tipoEvento': evento.get_tipoEvento_display(), 
+        })
+
     return JsonResponse(context, safe=False)
 
 def eventomedicoCreate(request):

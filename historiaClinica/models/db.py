@@ -6,7 +6,7 @@ client = motor.motor_asyncio.AsyncIOMotorClient(
     "mongodb://sishospital_user:isis2503@10.128.0.86:27017?retryWrites=true&w=majority"
 )
 db = client.get_database("sishopital_db")
-historiasClinicas_collection = db.get_collection("historiasClinicas")
+historiasClinicas_collection = db.get_collection("historiasclinicas")
 
 
 async def set_historiasClinicas_db():
