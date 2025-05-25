@@ -3,7 +3,7 @@ import logic.historiasClinicas_logic as historiasClincas_service
 from models.models import HistoriaClinica, HistoriaClinicaOut, HistoriaClinicaCollection
 
 router = APIRouter()
-ENDPOINT_NAME = "/historiasClinicas"
+ENDPOINT_NAME = "/historiasclinicas"
 
 
 @router.get(

@@ -8,7 +8,7 @@ from models.db import PyObjectId
 
 
 class HistoriaClinica(BaseModel):
-    date: str = Field(...)
+    dateCreation: str = Field(...)
     observations: str = Field(...)
     lastupdate: str = Field(...)
     code: str = Field(...)
