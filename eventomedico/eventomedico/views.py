@@ -63,11 +63,10 @@ def eventosmedicosCreate(request):
         for eventomedico in data_json:
                     if check_paciente(eventomedico) == True:
                         db_eventomedico = Eventomedico()
-                        eventomedico = Eventomedico()
-                        eventomedico.fechaEvento = data_json['fechaEvento']
-                        eventomedico.descripcion = data_json['descripcion']
-                        eventomedico.tipoEvento = data_json['tipoEvento']
-                        eventomedico.paciente = data_json['paciente']
+                        db_eventomedico.fechaEvento = eventomedico['fechaEvento']
+                        db_eventomedico.descripcion = eventomedico['descripcion']
+                        db_eventomedico.tipoEvento = eventomedico['tipoEvento']
+                        db_eventomedico.paciente = eventomedico['paciente']
                         eventomedico_list.append(db_eventomedico)
                     else:
                         return HttpResponse("unsuccessfully created Evento Medico. Paciente or Historia Clinica does not exist")
