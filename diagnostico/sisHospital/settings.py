@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'sisHospital.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get("DIAGNOSTICO_DB", "diagnostico_db"),
-        'USER': os.environ.get("DIAGNOSTICO_DB_USER", "diagnostico_user"),
-        'PASSWORD': os.environ.get("DIAGNOSTICO_DB_PASSWD", "isis2503"),
-        'HOST': os.environ.get("DIAGNOSTICO_DB_HOST", "FALTA"),
-        'PORT': os.environ.get("DIAGNOSTICO_DB_PORT", "5432")
+        'NAME': os.environ.get("DIAGNOSTICOS_DB", "diagnosticos_db"),
+        'USER': os.environ.get("DIAGNOSTICOS_DB_USER", "diagnosticos_user"),
+        'PASSWORD': os.environ.get("DIAGNOSTICOS_DB_PASSWD", "isis2503"),
+        'HOST': os.environ.get("DIAGNOSTICOS_DB_HOST", "10.128.0.89"),
+        'PORT': os.environ.get("DIAGNOSTICOS_DB_PORT", "5432")
     }
 }
 
